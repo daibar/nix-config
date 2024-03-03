@@ -4,7 +4,7 @@
   networking = {
     nameservers = [ "8.8.8.8"
  ];
-    defaultGateway = "161.35.224.1";
+    defaultGateway = "64.23.128.1";
     defaultGateway6 = {
       address = "";
       interface = "eth0";
@@ -14,27 +14,27 @@
     interfaces = {
       eth0 = {
         ipv4.addresses = [
-          { address="161.35.235.55"; prefixLength=20; }
-{ address="10.48.0.5"; prefixLength=16; }
+          { address="64.23.135.245"; prefixLength=20; }
+{ address="10.48.0.6"; prefixLength=16; }
         ];
         ipv6.addresses = [
-          { address="fe80::9003:75ff:feea:3673"; prefixLength=64; }
+          { address="fe80::245d:11ff:fe29:d86c"; prefixLength=64; }
         ];
-        ipv4.routes = [ { address = "161.35.224.1"; prefixLength = 32; } ];
+        ipv4.routes = [ { address = "64.23.128.1"; prefixLength = 32; } ];
         ipv6.routes = [ { address = ""; prefixLength = 128; } ];
       };
             eth1 = {
         ipv4.addresses = [
-          { address="10.124.0.2"; prefixLength=20; }
+          { address="10.124.0.3"; prefixLength=20; }
         ];
         ipv6.addresses = [
-          { address="fe80::9cee:bbff:fe29:43ae"; prefixLength=64; }
+          { address="fe80::704e:d0ff:fe76:85f8"; prefixLength=64; }
         ];
         };
     };
   };
   services.udev.extraRules = ''
-    ATTR{address}=="92:03:75:ea:36:73", NAME="eth0"
-    ATTR{address}=="9e:ee:bb:29:43:ae", NAME="eth1"
+    ATTR{address}=="26:5d:11:29:d8:6c", NAME="eth0"
+    ATTR{address}=="72:4e:d0:76:85:f8", NAME="eth1"
   '';
 }

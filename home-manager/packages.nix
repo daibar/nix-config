@@ -1,0 +1,7 @@
+{ pkgs, ... }:
+
+with pkg; [
+
+   neofetch
+
+]
