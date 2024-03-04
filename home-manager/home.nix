@@ -13,6 +13,7 @@
     # inputs.nix-colors.homeManagerModule
 
     # You can also split up your configuration and import pieces of it here:
+    ./nvim.nix
   ];
 
   nixpkgs = {
@@ -41,6 +42,10 @@
   home = {
     username = "daibar";
     homeDirectory = "/home/daibar";
+
+    sessionVariables = {
+      EDITOR = "nvim";
+    };
   };
 
   # Add stuff for your user as you see fit:
