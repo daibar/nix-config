@@ -42,7 +42,6 @@
   home = {
     username = "daibar";
     homeDirectory = "/home/daibar";
-
     sessionVariables = {
       EDITOR = "nvim";
     };
@@ -51,8 +50,26 @@
   # Add stuff for your user as you see fit:
   home.packages = with pkgs; [ neofetch ];
 
-  # Enable home-manager and git
+  # Enable home-manager, zsh and git
   programs.home-manager.enable = true;
+  programs.zsh = {
+    enable = true;
+    plugins = [
+      {
+        name = "powerlevel10k";
+        src = pkgs.zsh-powerlevel10k;
+        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+      }
+      {
+        name = "powerlevel10k-config";
+        src = ./p10k-config;
+        file = "p10k.zsh";
+      }
+    ];
+    oh-my-zsh = {
+      enable = true;
+    };
+  };
 
   programs.git = {
     enable = true;
