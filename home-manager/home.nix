@@ -49,6 +49,7 @@
   };
 
   # Add stuff for your user as you see fit:
+  # gcc needed to allow treesitter to install language support
   home.packages = with pkgs; [ neofetch gcc ];
 
   # Enable home-manager, zsh and git
@@ -65,6 +66,11 @@
         name = "powerlevel10k-config";
         src = ./p10k-config;
         file = "p10k.zsh";
+      }
+      {
+        name = "vi-mode";
+        src = pkgs.zsh-vi-mode;
+        file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
       }
     ];
     oh-my-zsh = {
