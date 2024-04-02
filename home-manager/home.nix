@@ -76,6 +76,15 @@
     oh-my-zsh = {
       enable = true;
     };
+    initExtra = ''
+
+      #zsh-vi-mode keybindings
+      function atuinSearch() {
+        atuin search -i
+      }
+      zvm_define_widget atuin-search atuinSearch
+      zvm_bindkey viins '^t' atuin-search
+    '';
   };
 
   programs.git = {
