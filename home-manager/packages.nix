@@ -3,5 +3,6 @@
 with pkg; [
 
    neofetch
+   gcc
 
 ]

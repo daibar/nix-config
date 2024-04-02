@@ -1,5 +1,5 @@
 set nocompatible
-set number
+set relativenumber
 set noswapfile
 
 " Default Tab setting, space is preferred

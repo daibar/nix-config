@@ -48,7 +48,7 @@
   };
 
   # Add stuff for your user as you see fit:
-  home.packages = with pkgs; [ neofetch ];
+  home.packages = with pkgs; [ neofetch gcc ];
 
   # Enable home-manager, zsh and git
   programs.home-manager.enable = true;
