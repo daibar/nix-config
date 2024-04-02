@@ -80,7 +80,6 @@
     neovim
     wget
     git
-    tmux
     home-manager
     zsh
   ];
