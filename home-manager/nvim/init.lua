@@ -206,6 +206,7 @@ require('lazy').setup({
   {
     -- Theme inspired by Atom
     'folke/tokyonight.nvim',
+    lazy = false,
     priority = 1000,
     config = function()
       require("tokyonight").setup({
@@ -222,7 +223,7 @@ require('lazy').setup({
           colors.error = "#ff0000"
         end
       })
-      vim.cmd.colorscheme 'tokyonight'
+      vim.cmd[[colorscheme tokyonight]]
     end,
   },
 
