@@ -84,6 +84,11 @@
     userEmail = "dannyaibar@gmail.com";
   };
 
+  programs.atuin = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   programs.neovim.enable = true;
 
   # Nicely reload system units when changing configs
