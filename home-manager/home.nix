@@ -50,7 +50,14 @@
 
   # Add stuff for your user as you see fit:
   # gcc needed to allow treesitter to install language support
-  home.packages = with pkgs; [ neofetch gcc ];
+  home.packages = with pkgs; 
+    [ 
+      neofetch 
+      gcc
+      nerdfonts
+    ];
+
+  fonts.fontconfig.enable = true;
 
   # Enable home-manager, zsh and git
   programs.home-manager.enable = true;
