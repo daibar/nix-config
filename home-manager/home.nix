@@ -84,6 +84,7 @@
       enable = true;
     };
     initExtra = ''
+      export PATH=/home/daibar/.nix-profile/bin:$PATH
 
       #zsh-vi-mode keybindings
       function atuinSearch() {
