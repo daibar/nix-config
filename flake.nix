@@ -24,7 +24,6 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
-    user =  "daibar";
   in {
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
@@ -40,8 +39,8 @@
     # Standalone home-manager configuration entrypoint
     # Available through 'home-manager --flake .#your-username@your-hostname'
     homeConfigurations = {
-      # FIXME replace with your username@hostname
-      "${user}@dannys-mbp.lan" = home-manager.lib.homeManagerConfiguration {
+      # FIXME replace with your username@hostname & system
+      "daibar@dannys-mbp.lan" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.aarch64-darwin; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
         # > Our main home-manager configuration file <
