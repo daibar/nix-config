@@ -77,6 +77,7 @@
       enable = true;
     };
     initExtra = ''
+      export TERM=screen-256color
 
       #zsh-vi-mode keybindings
       function atuinSearch() {
