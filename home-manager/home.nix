@@ -43,6 +43,7 @@
   home = {
     username = "daibar";
     homeDirectory = "/home/daibar";
+    # homeDirectory = "/Users/daibar; for macos
     sessionVariables = {
       EDITOR = "nvim";
     };
