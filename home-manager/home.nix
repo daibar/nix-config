@@ -41,7 +41,7 @@
 
   # TODO: Set your username
   home = {
-    username = "daibar";
+    username = "${user}";
     homeDirectory = "/Users/daibar";
     sessionVariables = {
       EDITOR = "nvim";
