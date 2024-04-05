@@ -1,6 +1,6 @@
 # Nix Configuration
 
-# Project Structure
+## Project Structure
 * home-manager:
     * home.nix
     * etc...
@@ -9,7 +9,7 @@
 * nixos:
    * configuration.nix
    * hardware-configuration.nix (this can/should be generated and copied over for specific server)
-   * [[networking.nix]]
+   * networking.nix
 
 ## Install on Digital Ocean Droplot or other VM
 https://github.com/elitak/nixos-infect
@@ -41,7 +41,7 @@ note: unsure why network-addresses-eth0.service may fail.  just run it again
 
 10) Follow Home Manager instructions
 
-# Home Manager
+## Home Manager
 1) Navigate to `~/nix-config`
 2) Update `flake.nix` and `home-manager/home.nix` as directed in comments
 3) Run the following commands while in nixos-config folder:
@@ -50,5 +50,5 @@ or
 `$ home-manager switch --flake .#{username}@{hostname}`
 note: use -b backup flag as necessary
 
-# Tips:
+## Tips:
 Always commit your changes before using switch.  If you have uncommitted changes they won't be found during install!
