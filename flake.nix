@@ -39,22 +39,19 @@
     # Standalone home-manager configuration entrypoint
     # Available through 'home-manager --flake .#your-username@your-hostname'
     # FIXME replace with your username@hostname and system
-    # only pick one below
     homeConfigurations = {
-      # wsl ubuntu, nixos and debian
       "daibar@home" = home-manager.lib.homeManagerConfiguration {
+
+        # only pick one system below
+        # wsl ubuntu, nixos and debian
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        # macos
+#        pkgs = nixpkgs.legacyPackages.aarch64-darwin; # Home-manager requires 'pkgs' instance
+
         extraSpecialArgs = {inherit inputs outputs;};
         # > Our main home-manager configuration file <
         modules = [./home-manager/home.nix];
       };
-      # macos
-#      "daibar@dannys-mbp.lan" = home-manager.lib.homeManagerConfiguration {
-#        pkgs = nixpkgs.legacyPackages.aarch64-darwin; # Home-manager requires 'pkgs' instance
-#        extraSpecialArgs = {inherit inputs outputs;};
-#        # > Our main home-manager configuration file <
-#        modules = [./home-manager/home.nix];
-#      };
     };
   };
 }
