@@ -89,7 +89,13 @@ require('lazy').setup({
       }
     end,
   },
-    -- Example for neo-tree.nvim
+  {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    config = true
+    -- use opts = {} for passing setup options
+    -- this is equalent to setup({}) function
+  },
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
@@ -235,7 +241,7 @@ require('lazy').setup({
           colors.error = "#ff0000"
         end
       })
-      vim.cmd[[colorscheme tokyonight]]
+      vim.cmd [[colorscheme tokyonight]]
     end,
   },
 
