@@ -39,11 +39,13 @@
     };
   };
 
-  # TODO: Set your username
+  # TODO: Set your username and home directory
   home = {
     username = "daibar";
+    # linux
     homeDirectory = "/home/daibar";
-    # homeDirectory = "/Users/daibar; for macos
+    # macos
+#   homeDirectory = "/Users/daibar";
     sessionVariables = {
       EDITOR = "nvim";
     };
