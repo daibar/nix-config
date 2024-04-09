@@ -84,6 +84,10 @@
       enable = true;
     };
     initExtra = ''
+      #Presto Dev Stuff
+      [[ -s "/Users/daibar/scripts/gvm" ]] && source "Users/daibar/scripts/gvm"
+      export GVM_ROOT=/Users/daibar/.gvm
+      #
       export PATH=/home/daibar/.nix-profile/bin:$PATH
 
       #zsh-vi-mode keybindings
