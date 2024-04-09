@@ -42,8 +42,7 @@
   # TODO: Set your username
   home = {
     username = "daibar";
-    homeDirectory = "/home/daibar";
-    # homeDirectory = "/Users/daibar; for macos
+    homeDirectory = "/Users/daibar";
     sessionVariables = {
       EDITOR = "nvim";
     };
