@@ -87,6 +87,8 @@
       #Presto Dev Stuff
       [[ -s "/Users/daibar/scripts/gvm" ]] && source "Users/daibar/scripts/gvm"
       export GVM_ROOT=/Users/daibar/.gvm
+
+      export PATH=$PATH:$(go env GOPATH)/bin
       #
       export PATH=/Users/daibar/.nix-profile/bin:$PATH
       export PATH=/Users/daibar/.local/bin:$PATH
