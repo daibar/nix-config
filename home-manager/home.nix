@@ -89,6 +89,8 @@
       export GVM_ROOT=/Users/daibar/.gvm
 
       export PATH=$PATH:$(go env GOPATH)/bin
+      export PATH=$PATH:/Users/daibar/go/bin
+
       #
       export PATH=/Users/daibar/.nix-profile/bin:$PATH
       export PATH=/Users/daibar/.local/bin:$PATH
