@@ -42,6 +42,9 @@
   # TODO: Set your username
   home = {
     username = "daibar";
+    # Linux
+    # homeDirectory = "/home/daibar";
+    # Mac
     homeDirectory = "/Users/daibar";
     sessionVariables = {
       EDITOR = "nvim";
@@ -84,7 +87,7 @@
       enable = true;
     };
     initExtra = ''
-      #Presto Dev Stuff
+      # Mac Specific, may need adjustment
       [[ -s "/Users/daibar/scripts/gvm" ]] && source "Users/daibar/scripts/gvm"
       export GVM_ROOT=/Users/daibar/.gvm
 
