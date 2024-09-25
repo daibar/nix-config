@@ -49,6 +49,8 @@ note: unsure why network-addresses-eth0.service may fail.  just run it again
 or
 `$ home-manager switch --flake .#{username}@{hostname}`
 note: use -b backup flag as necessary
+4) Set zsh as default shell:
+`$ chsh -s $(which zsh)`
 
 ## Tips:
 Always commit your changes before using switch.  If you have uncommitted changes they won't be found during install!
