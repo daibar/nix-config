@@ -8,11 +8,13 @@
     secureSocket = false;
 
     extraConfig = ''
-      # https://old.reddit.com/r/tmux/comments/mesrci/tmux_2_doesnt_seem_to_use_256_colors/
-      set -g default-terminal "xterm-256color"
-      set -ga terminal-overrides ",*256col*:Tc"
-      set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
-      set-environment -g COLORTERM "truecolor"
+    # https://old.reddit.com/r/tmux/comments/mesrci/tmux_2_doesnt_seem_to_use_256_colors/
+    set -g default-terminal "tmux-256color"
+    set -sa terminal-features ',alacritty:RGB'
+    set -sa terminal-overrides ',alacritty:RGB'
+    set-environment -g COLORTERM "truecolor"
+
+    set-option -g mouse on
 
     #
     # Tokyonight theme

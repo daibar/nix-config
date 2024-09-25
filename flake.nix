@@ -40,13 +40,13 @@
     # Available through 'home-manager --flake .#your-username@your-hostname'
     # FIXME replace with your username@hostname and system
     homeConfigurations = {
-      "daibar@home" = home-manager.lib.homeManagerConfiguration {
+      "daibar@dannys-laptop" = home-manager.lib.homeManagerConfiguration {
 
         # only pick one system below
         # wsl ubuntu, nixos and debian
-        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+#        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         # macos
-#        pkgs = nixpkgs.legacyPackages.aarch64-darwin; # Home-manager requires 'pkgs' instance
+        pkgs = nixpkgs.legacyPackages.aarch64-darwin; # Home-manager requires 'pkgs' instance
 
         extraSpecialArgs = {inherit inputs outputs;};
         # > Our main home-manager configuration file <

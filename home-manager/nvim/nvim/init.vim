@@ -22,6 +22,8 @@ Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
 Plug 'nvim-tree/nvim-tree.lua'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
 call plug#end()
 let g:vimwiki_autowriteall = 1
 let g:vimwiki_list = [{'path': '~/notes/',

@@ -43,9 +43,9 @@
   home = {
     username = "daibar";
     # linux
-    homeDirectory = "/home/daibar";
+#   homeDirectory = "/home/daibar";
     # macos
-#   homeDirectory = "/Users/daibar";
+    homeDirectory = "/Users/daibar";
     sessionVariables = {
       EDITOR = "nvim";
     };
@@ -87,7 +87,16 @@
       enable = true;
     };
     initExtra = ''
-      export PATH=/home/daibar/.nix-profile/bin:$PATH
+      # Mac Specific, may need adjustment
+      [[ -s "/Users/daibar/scripts/gvm" ]] && source "Users/daibar/scripts/gvm"
+      export GVM_ROOT=/Users/daibar/.gvm
+
+      export PATH=$PATH:$(go env GOPATH)/bin
+      export PATH=$PATH:/Users/daibar/go/bin
+
+      #
+      export PATH=/Users/daibar/.nix-profile/bin:$PATH
+      export PATH=/Users/daibar/.local/bin:$PATH
 
       #zsh-vi-mode keybindings
       function atuinSearch() {
