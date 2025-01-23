@@ -97,6 +97,7 @@
       #
       export PATH=/Users/daibar/.nix-profile/bin:$PATH
       export PATH=/Users/daibar/.local/bin:$PATH
+      export PATH=/nix/var/nix/profiles/default/bin:$PATH
 
       #zsh-vi-mode keybindings
       function atuinSearch() {
