@@ -66,7 +66,7 @@
   # FIXME: Add the rest of your current configuration
 
   # TODO: Set your hostname
-  networking.hostName = "home";
+  networking.hostName = "Dannys-Laptop";
 
   # TODO: This is just an example, be sure to use whatever bootloader you prefer
   boot.loader.grub = {
