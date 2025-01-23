@@ -58,6 +58,7 @@
       neofetch 
       gcc
       nerdfonts
+      ripgrep
     ];
 
   fonts.fontconfig.enable = true;

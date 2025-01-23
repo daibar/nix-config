@@ -7,6 +7,21 @@
     # Force tmux to use /tmp for sockets (WSL2 compat)
     secureSocket = false;
 
+    plugins = with pkgs.tmuxPlugins; [
+      {
+        plugin = resurrect;
+        extraConfig = ''
+
+          set -g @resurrect-strategy-vim 'session'
+
+          set -g @resurrect-capture-pane-contents 'on'
+
+          set -g @resurrect-dir "~/.config/tmux/resurrect"
+          set -g @resurrect-hook-post-save-all 'sed -i -E "s|(pane.*nvim\s*:)[^;]+;.*\s([^ ]+)$|\1nvim \2|" "~/.config/tmux/resurrect"/last'
+        '';
+      }
+    ];
+
     extraConfig = ''
     # https://old.reddit.com/r/tmux/comments/mesrci/tmux_2_doesnt_seem_to_use_256_colors/
     set -g default-terminal "tmux-256color"
@@ -84,6 +99,7 @@
     # Clock mode
     set -g clock-mode-colour "$tmux_status_bg_2"
     set -g clock-mode-style 24
+
     '';
-  };
+ };
 }
