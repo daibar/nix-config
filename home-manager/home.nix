@@ -107,6 +107,9 @@
       }
       zvm_define_widget atuin-search atuinSearch
       zvm_bindkey viins '^t' atuin-search
+
+      # format less pager for nice output for programs like pgcli
+      export LESS="-SRXF"
     '';
   };
 
