@@ -59,6 +59,7 @@
       gcc
       nerdfonts
       ripgrep
+      cbonsai
     ];
 
   fonts.fontconfig.enable = true;
