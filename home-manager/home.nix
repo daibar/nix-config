@@ -110,6 +110,9 @@
 
       # format less pager for nice output for programs like pgcli
       export LESS="-SRXF"
+
+      # aliases
+      alias bonsai="cbonsai -i -l -t 100"
     '';
   };
 
