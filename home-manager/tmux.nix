@@ -102,7 +102,7 @@
     set -g clock-mode-style 24
 
     # VI Commands
-    set -g window-option mode-keys vi
+    #set -g window-option mode-keys vi
     '';
  };
 }
