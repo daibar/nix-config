@@ -40,7 +40,7 @@
     # Available through 'home-manager --flake .#your-username@your-hostname'
     # FIXME replace with your username@hostname and system
     homeConfigurations = {
-      "daibar@Dannys-Laptop.local" = home-manager.lib.homeManagerConfiguration {
+      "daibar@mac.lan" = home-manager.lib.homeManagerConfiguration {
 
         # only pick one system below
         # wsl ubuntu, nixos and debian
