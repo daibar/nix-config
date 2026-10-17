@@ -60,6 +60,8 @@
       nerdfonts
       ripgrep
       cbonsai
+      visidata
+      screen
     ];
 
   fonts.fontconfig.enable = true;
@@ -113,6 +115,7 @@
 
       # aliases
       alias bonsai="cbonsai -i -l -t 100"
+      alias sqlit-tui='uvx --from sqlit-tui --with redshift-connector sqlit'
     '';
   };
 
