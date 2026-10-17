@@ -5,6 +5,7 @@
   lib,
   config,
   pkgs,
+  unstable,
   ...
 }: {
   # You can import other home-manager modules here
@@ -60,7 +61,8 @@
       nerdfonts
       ripgrep
       cbonsai
-      visidata
+      unstable.visidata
+      unstable.uv
       screen
     ];
 
@@ -130,7 +132,10 @@
     enableZshIntegration = true;
   };
 
-  programs.neovim.enable = true;
+  programs.neovim = {
+    enable = true;
+    package = unstable.neovim-unwrapped;
+  };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = true;
