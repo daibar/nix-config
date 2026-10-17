@@ -125,19 +125,20 @@ require('lazy').setup({
   --  The configuration is done below. Search for lspconfig to find it below.
   {
     -- LSP Configuration & Plugins
+    -- Server binaries come from nix (see nvim.nix), not mason
     'neovim/nvim-lspconfig',
     dependencies = {
-      -- Automatically install LSPs to stdpath for neovim
-      { 'williamboman/mason.nvim', config = true },
-      'williamboman/mason-lspconfig.nvim',
-
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
       { 'j-hui/fidget.nvim',       opts = {} },
-
-      -- Additional lua configuration, makes nvim stuff amazing!
-      'folke/neodev.nvim',
     },
+  },
+
+  {
+    -- Neovim runtime and plugin awareness for lua_ls when editing this config
+    'folke/lazydev.nvim',
+    ft = 'lua',
+    opts = {},
   },
 
   {
@@ -609,61 +610,45 @@ end
 --  ['<leader>h'] = { 'Git [H]unk' },
 --}, { mode = 'v' })
 
--- mason-lspconfig requires that these setup functions are called in this order
--- before setting up the servers.
-require('mason').setup()
-require('mason-lspconfig').setup()
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspAttach', { clear = true }),
+  callback = function(event)
+    on_attach(vim.lsp.get_client_by_id(event.data.client_id), event.buf)
+  end,
+})
 
--- Enable the following language servers
---  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
---
---  Add any additional override configuration in the following tables. They will be passed to
---  the `settings` field of the server config. You must look up that documentation yourself.
---
---  If you want to override the default filetypes that your language server will attach to you can
---  define the property 'filetypes' to the map in question.
+-- Language servers are installed by nix: nvim.nix lists them and writes
+-- their names and bin path to nix_env.lua. Put that path first so the nix
+-- binaries win over other copies on $PATH (e.g. ~/go/bin/gopls).
+local nix_env = require 'nix_env'
+vim.env.PATH = nix_env.lsp_path .. ':' .. vim.env.PATH
+
+-- Per-server overrides, merged over nvim-lspconfig's defaults.
+--  To add a server, add it to lspServers in nvim.nix; add an entry here only
+--  if it needs settings, filetypes, etc. See `:help vim.lsp.config()`.
 local servers = {
-  -- clangd = {},
-  -- gopls = {},
-  -- pyright = {},
-  -- rust_analyzer = {},
-  -- tsserver = {},
-  -- html = { filetypes = { 'html', 'twig', 'hbs'} },
-
   lua_ls = {
-    Lua = {
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
-      -- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-      -- diagnostics = { disable = { 'missing-fields' } },
+    settings = {
+      Lua = {
+        workspace = { checkThirdParty = false },
+        telemetry = { enable = false },
+        -- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
+        -- diagnostics = { disable = { 'missing-fields' } },
+      },
     },
   },
 }
 
--- Setup neovim lua configuration
-require('neodev').setup()
-
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+vim.lsp.config('*', {
+  capabilities = require('cmp_nvim_lsp').default_capabilities(),
+})
 
--- Ensure the servers above are installed
-local mason_lspconfig = require 'mason-lspconfig'
+for server_name, config in pairs(servers) do
+  vim.lsp.config(server_name, config)
+end
 
-mason_lspconfig.setup {
-  ensure_installed = vim.tbl_keys(servers),
-}
-
-mason_lspconfig.setup_handlers {
-  function(server_name)
-    require('lspconfig')[server_name].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = servers[server_name],
-      filetypes = (servers[server_name] or {}).filetypes,
-    }
-  end,
-}
+vim.lsp.enable(nix_env.lsp_servers)
 
 -- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
@@ -711,6 +696,7 @@ cmp.setup {
     end, { 'i', 's' }),
   },
   sources = {
+    { name = 'lazydev', group_index = 0 },
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
     { name = 'path' },
