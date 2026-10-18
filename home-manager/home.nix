@@ -107,11 +107,13 @@
       export PATH=/nix/var/nix/profiles/default/bin:$PATH
 
       #zsh-vi-mode keybindings
-      function atuinSearch() {
-        atuin search -i
-      }
-      zvm_define_widget atuin-search atuinSearch
-      zvm_bindkey viins '^t' atuin-search
+      # Bind atuin's own widgets after zsh-vi-mode initializes (it would
+      # otherwise clobber them). The widget loads the selection into the
+      # buffer, unlike running `atuin search -i` which only prints it.
+      zvm_after_init_commands+=(
+        "bindkey -M viins '^t' _atuin_search_widget"
+        "bindkey -M viins '^r' _atuin_search_widget"
+      )
 
       # format less pager for nice output for programs like pgcli
       export LESS="-SRXF"
@@ -131,6 +133,8 @@
   programs.atuin = {
     enable = true;
     enableZshIntegration = true;
+    package = unstable.atuin;
+    settings.enter_accept = false;
   };
 
   programs.neovim = {
