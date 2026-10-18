@@ -53,11 +53,9 @@
   };
 
   # Add stuff for your user as you see fit:
-  # gcc needed to allow treesitter to install language support
-  home.packages = with pkgs; 
-    [ 
-      neofetch 
-      gcc
+  home.packages = with pkgs;
+    [
+      neofetch
       nerdfonts
       ripgrep
       cbonsai

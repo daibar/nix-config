@@ -13,6 +13,21 @@ let
     golangci_lint_ls = [ golangci-lint-langserver golangci-lint ];
   };
   lspPath = lib.makeBinPath (lib.flatten (lib.attrValues lspServers));
+
+  # nvim-treesitter and its parsers/queries, versioned together by nixpkgs.
+  # Replaces :TSUpdate / auto_install, so add a language here to get it.
+  treesitter = unstable.vimPlugins.nvim-treesitter.withPlugins (p: with p; [
+    bash c cpp csv diff dockerfile dtd git_config git_rebase gitcommit
+    gitignore go gomod gosum hcl ini javascript json lua markdown
+    markdown_inline mermaid nix powershell python requirements rust sql
+    terraform toml tsv tsx typescript vim vimdoc xml yaml
+  ]);
+  treesitterParsers = pkgs.symlinkJoin {
+    name = "nvim-treesitter-parsers";
+    # Query-only languages that javascript/typescript/tsx inherit from
+    paths = treesitter.dependencies
+      ++ (with unstable.vimPlugins.nvim-treesitter.queries; [ ecma jsx ]);
+  };
   luaList = xs: "{ " + lib.concatMapStringsSep ", " (x: ''"${x}"'') xs + " }";
 in {
   xdg.configFile = {
@@ -25,6 +40,9 @@ in {
       return {
         lsp_servers = ${luaList (lib.attrNames lspServers)},
         lsp_path = "${lspPath}",
+        treesitter = "${treesitter}",
+        treesitter_parsers = "${treesitterParsers}",
+        treesitter_textobjects = "${unstable.vimPlugins.nvim-treesitter-textobjects}",
       }
     '';
   };
