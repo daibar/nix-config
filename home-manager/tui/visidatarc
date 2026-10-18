@@ -1,0 +1,52 @@
+import visidata
+from visidata import vd
+
+vd.themes['tokyonight'] = dict(
+    color_default        = 'white',
+    color_default_hdr    = 'blue',
+    color_bottom_hdr     = 'blue',
+    color_current_row    = 'reverse',
+    color_current_col    = 'bold',
+    color_current_hdr    = 'reverse blue',
+    color_current_cell   = '',
+    color_key_col        = 'cyan',
+    color_key_col_hdr    = 'bold cyan',
+    color_selected_row   = 'magenta',
+
+    color_edit_cell      = 'green',
+
+    color_status         = 'black on blue',
+    color_active_status  = 'green on 8',
+    color_inactive_status= 'white',
+    color_error          = 'red',
+    color_warning        = 'yellow',
+
+    color_menu           = 'white',
+    color_menu_active    = 'reverse cyan',
+    color_menu_spec      = 'cyan',
+    color_menu_help      = 'white',
+
+    color_titlebar       = 'blue',
+    color_keystrokes     = 'yellow',
+    color_clickable      = 'underline',
+    color_code           = 'cyan',
+    color_working        = 'green',
+
+    color_note_pending   = 'magenta',
+    color_note_type      = 'blue',
+    color_note_row       = 'blue',
+
+    color_change_pending = 'reverse yellow',
+    color_add_pending    = 'green',
+    color_delete_pending = 'red',
+
+    color_hidden_col     = 'black',
+    color_column_sep     = 'black',
+
+    color_xword_active   = 'green',
+    color_graph_axis     = 'white',
+    color_graph_hidden   = 'black',
+    color_graph_selected = 'reverse magenta',
+)
+
+vd.options.theme = 'tokyonight'

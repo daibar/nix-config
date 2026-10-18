@@ -1,0 +1,23 @@
+{
+  "_note": "Customize colors in the theme object then reselect the theme.",
+  "theme": {
+    "name": "Tokyo Night 2",
+    "dark": true,
+    "primary": "#7aa2f7",
+    "secondary": "#9ece6a",
+    "accent": "#0db9d7",
+    "warning": "#e0af68",
+    "error": "#f7768e",
+    "success": "#9ece6a",
+    "foreground": "#a9b1d6",
+    "background": "#1a1b26",
+    "surface": "#1a1b26",
+    "panel": "#32344a",
+    "variables": {
+      "border": "#444b6a",
+      "input-selection-background": "#7aa2f7 25%",
+      "mode-normal-color": "#e0af68",
+      "mode-insert-color": "#9ece6a"
+    }
+  }
+}

@@ -1,0 +1,49 @@
+name: tokyo-night
+# Core colors (mapped from alacritty.toml)
+# NOTE: Posting/Textual derives $block-cursor-background (the active-tab and
+# selection highlight) and focused $border from `primary`. Setting primary to
+# green makes those highlights green, matching the SQL tool's match highlight.
+primary: '#9ece6a'     # block cursor / active tab / selection / focus border (normal green)
+secondary: '#bb9af7'   # method selector, minor labels (bright magenta)
+accent: '#7aa2f7'      # scrollbars, URL protocol, footer keys (normal blue)
+background: '#1a1b26'  # primary background
+surface: '#16161e'     # panels blend with background, defined by borders
+panel: '#292e42'       # panel background (muted navy)
+error: '#f7768e'       # error messages (normal red)
+success: '#9ece6a'     # success messages (normal green)
+warning: '#e0af68'     # warning messages (normal yellow)
+dark: true
+
+# Optional metadata
+author: daibar
+description: Tokyo Night theme derived from an Alacritty color scheme.
+homepage: https://github.com/darrenburns/posting
+
+# NOTE: Posting's YAML theme schema only supports the fields below
+# (text_area, url, syntax, method, variable) plus the top-level colors.
+# Arbitrary Textual variables (block-cursor-*, border, input-*) are NOT
+# read from theme files, so they can't be set here.
+text_area:
+  cursor: '#1a1b26 on #9ece6a'      # dark text on green, like the SQL match highlight
+  cursor_line: 'underline'
+  selection: '#1a1b26 on #9ece6a'
+  gutter: '#444b6a'
+  matched_bracket: '#1a1b26 on #7aa2f7'
+
+url:
+  base: '#a9b1d6'
+  protocol: 'bold #7aa2f7'
+
+syntax:
+  json_key: '#7aa2f7'
+  json_string: '#9ece6a'
+  json_number: '#ff9e64'
+  json_boolean: '#ff9e64'
+  json_null: 'italic #bb9af7'
+
+method:
+  get: 'bold #9ece6a'
+  post: 'bold #e0af68'
+  put: 'bold #7aa2f7'
+  delete: 'bold #f7768e'
+  patch: 'bold #bb9af7'
