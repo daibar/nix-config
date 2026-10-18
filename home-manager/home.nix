@@ -69,6 +69,11 @@
 
   fonts.fontconfig.enable = true;
 
+  # Enable flakes in ~/.config/nix/nix.conf so `home-manager switch --flake`
+  # works without --extra-experimental-features.
+  nix.package = pkgs.nix;
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # Enable home-manager, zsh and git
   programs.home-manager.enable = true;
   programs.zsh = {
