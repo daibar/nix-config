@@ -30,8 +30,10 @@
     extraConfig = ''
     # https://old.reddit.com/r/tmux/comments/mesrci/tmux_2_doesnt_seem_to_use_256_colors/
     set -g default-terminal "tmux-256color"
-    set -sa terminal-features ',alacritty:RGB'
-    set -sa terminal-overrides ',alacritty:RGB'
+    # Alacritty reports TERM=xterm-256color (no alacritty terminfo installed),
+    # so enable truecolor for that too or tmux downsamples hex colors to 256.
+    set -sa terminal-features ',alacritty:RGB,xterm-256color:RGB'
+    set -sa terminal-overrides ',alacritty:RGB,xterm-256color:RGB'
     set-environment -g COLORTERM "truecolor"
 
     set-option -g mouse on
