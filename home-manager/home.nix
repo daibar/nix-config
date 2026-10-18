@@ -134,6 +134,8 @@
     enable = true;
     enableZshIntegration = true;
     package = unstable.atuin;
+    # Keep default zsh up-arrow history; atuin only on ^r / ^t
+    flags = [ "--disable-up-arrow" ];
     settings.enter_accept = false;
   };
 

@@ -6,6 +6,8 @@
     escapeTime = 0;
     # vi keys in copy mode (scrollback)
     keyMode = "vi";
+    # Default 2000 lines is too short for long agent (claude) sessions
+    historyLimit = 100000;
     # Force tmux to use /tmp for sockets (WSL2 compat)
     secureSocket = false;
 
