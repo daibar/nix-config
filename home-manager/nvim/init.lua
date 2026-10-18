@@ -371,6 +371,14 @@ vim.o.mouse = 'a'
 --  See `:help 'clipboard'`
 vim.o.clipboard = 'unnamedplus'
 
+-- Inside GNU screen ($STY set), skip the built-in OSC 52 detection: its
+-- XTGETTCAP query (ESC P +q4D73) is a DCS, which screen strips and passes to
+-- the outer terminal raw, leaving "+q4D73" drawn on screen. The clipboard
+-- still works through pbcopy (unnamedplus above).
+if vim.env.STY then
+  vim.g.termfeatures = vim.tbl_extend('force', vim.g.termfeatures or {}, { osc52 = false })
+end
+
 -- Enable break indent
 vim.o.breakindent = true
 
