@@ -7,6 +7,10 @@
     # Newer packages (neovim stack, uv, visidata) without moving the main pin
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
+    # Theme/config files for TUI apps (see home-manager/tui.nix)
+    dotfiles.url = "github:daibar/dotfiles";
+    dotfiles.flake = false;
+
     # Home manager
     home-manager.url = "github:nix-community/home-manager/release-23.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
