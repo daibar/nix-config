@@ -64,10 +64,16 @@
       unstable.visidata
       unstable.uv
       unstable.go
-      screen
+      unstable.screen # 5.x: 4.x drops 24-bit color escapes
     ];
 
   fonts.fontconfig.enable = true;
+
+  # Default TERM=screen is 8 colors; enable 256 and truecolor passthrough.
+  home.file.".screenrc".text = ''
+    term screen-256color
+    truecolor on
+  '';
 
   # Enable flakes in ~/.config/nix/nix.conf so `home-manager switch --flake`
   # works without --extra-experimental-features.
