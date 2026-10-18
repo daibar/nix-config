@@ -4,6 +4,8 @@
     enable = true;
     # Stop tmux+escape craziness.
     escapeTime = 0;
+    # vi keys in copy mode (scrollback)
+    keyMode = "vi";
     # Force tmux to use /tmp for sockets (WSL2 compat)
     secureSocket = false;
 
@@ -101,8 +103,10 @@
     set -g clock-mode-colour "$tmux_status_bg_2"
     set -g clock-mode-style 24
 
-    # VI Commands
-    #set -g window-option mode-keys vi
+    # vim-style selection in copy mode
+    bind -T copy-mode-vi v send -X begin-selection
+    bind -T copy-mode-vi C-v send -X rectangle-toggle
+    bind -T copy-mode-vi y send -X copy-pipe-and-cancel "pbcopy"
     '';
  };
 }
