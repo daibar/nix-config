@@ -58,6 +58,7 @@
       neofetch
       nerdfonts
       ripgrep
+      fd # telescope find_files uses it when available
       cbonsai
       unstable.visidata
       unstable.uv
