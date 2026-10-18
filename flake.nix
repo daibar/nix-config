@@ -43,11 +43,11 @@
     # Available through 'home-manager --flake .#your-username@your-hostname'
     # FIXME replace with your username@hostname and system
     homeConfigurations = {
-      "daibar@mac.lan" = home-manager.lib.homeManagerConfiguration {
+      "daibar@mac" = home-manager.lib.homeManagerConfiguration {
 
         # only pick one system below
         # wsl ubuntu, nixos and debian
-#        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+#       # pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         # macos
         pkgs = nixpkgs.legacyPackages.aarch64-darwin; # Home-manager requires 'pkgs' instance
 

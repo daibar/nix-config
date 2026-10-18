@@ -63,6 +63,7 @@
       cbonsai
       unstable.visidata
       unstable.uv
+      unstable.go
       screen
     ];
 
