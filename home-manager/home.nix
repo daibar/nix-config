@@ -70,9 +70,16 @@
   fonts.fontconfig.enable = true;
 
   # Default TERM=screen is 8 colors; enable 256 and truecolor passthrough.
+  # Scrollback: screen keeps only 100 lines by default and switches Alacritty
+  # to its alternate screen, so the mouse wheel has nothing to scroll.
+  # ti@:te@ skips that switch so output lands in Alacritty's own scrollback;
+  # defscrollback sizes copy mode (C-a [); altscreen keeps nvim/less out of it.
   home.file.".screenrc".text = ''
     term screen-256color
     truecolor on
+    defscrollback 50000
+    termcapinfo xterm* ti@:te@
+    altscreen on
   '';
 
   # Enable flakes in ~/.config/nix/nix.conf so `home-manager switch --flake`
