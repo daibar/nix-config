@@ -50,6 +50,10 @@
     homeDirectory = "/Users/daibar";
     sessionVariables = {
       EDITOR = "nvim";
+      # UTF-8 everywhere: zsh-vi-mode regexes throw
+      # "illegal byte sequence" on non-ASCII terminal bytes otherwise
+      LANG = "en_US.UTF-8";
+      LC_CTYPE = "en_US.UTF-8";
     };
   };
 
